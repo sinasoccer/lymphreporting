@@ -875,22 +875,20 @@ with tab5:
     st.code(clinical_hx or "", language="markdown")
 
     st.subheader("Microscopic Description")
-    st.text_area(
-        "",
-        key="microscopic_text",
-        height=260,
+    st.code(
+        st.session_state.get("microscopic_text", ""),
+        language="markdown",
     )
 
     st.subheader("Final Diagnosis")
-    st.text_area(
-        "",
-        key="final_diagnosis_text",
-        height=260,
+    st.code(
+        st.session_state.get("final_diagnosis_text", ""),
+        language="markdown",
     )
 
     st.markdown(
         """
 You can copy-paste the **Microscopic Description** and **Final Diagnosis** into your LIS.
-All fields remain in memory while you switch tabs, so your text will not be lost.
+Both sections update from the editable fields in the earlier tabs and persist while you switch tabs.
 """
     )
